@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { prisma } from "@/lib/prisma";
+import { getPrisma } from "@/lib/prisma";
+
+export const dynamic = "force-dynamic";
 
 type MenuMeal = {
   id: number;
@@ -13,6 +15,7 @@ type MenuMeal = {
 };
 
 export default async function MenuPage({ searchParams }: { searchParams: { page?: string } }) {
+  const prisma = getPrisma();
   const page = Number(searchParams.page) || 1;
   const pageSize = 4; // Meals per page
 

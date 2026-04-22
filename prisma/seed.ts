@@ -1,8 +1,8 @@
 // prisma/seed.ts
-import { prisma } from "@/lib/prisma";
-
+import { getPrisma } from "@/lib/prisma";
 
 async function main() {
+  const prisma = getPrisma();
   console.log('Start seeding...')
 
   const meals = [
@@ -51,10 +51,10 @@ async function main() {
 
 main()
   .then(async () => {
-    await prisma.$disconnect()
+    await getPrisma().$disconnect();
   })
   .catch(async (e) => {
-    console.error(e)
-    await prisma.$disconnect()
-    process.exit(1)
-  })
+    console.error(e);
+    await getPrisma().$disconnect();
+    process.exit(1);
+  });
