@@ -1,0 +1,51 @@
+.main {
+  padding: 4rem 1.25rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #1f2937;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
+  align-items: center;
+}
+
+.paragraph {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #4b5563;
+  margin: 0;
+}
+
+.paragraph + .paragraph {
+  margin-top: 1.5rem;
+}
+
+.imageWrap {
+  position: relative;
+  height: 500px;
+}
+
+.image {
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .imageWrap {
+    height: 350px;
+  }
+}
